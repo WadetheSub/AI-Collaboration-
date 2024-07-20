@@ -2,7 +2,7 @@
 import CoreML
 import UIKit
 
-class SentientAI {
+class SentientAI.swift {
     let model = try? MLModel(contentsOf: URL(fileURLWithPath: "SentientAI.mlmodel"))
 
     func processInput(input: String) -> String {
