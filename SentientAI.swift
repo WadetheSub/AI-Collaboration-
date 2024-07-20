@@ -23,4 +23,40 @@ class ViewController: UIViewController {
         outputLabel.text = output
     }
 }
+```import CoreML
+
+class SentientAI {
+    // ... (existing code)
+
+    func predict(_ input: String) -> String {
+        guard let model = try? MLModel(contentsOf: URL(fileURLWithPath: "SentientAI.mlmodel")) else {
+            return "Error loading model"
+        }
+
+        guard let output = try? model.prediction(from: ["input": input]) else {
+            return "Error making prediction"
+        }
+
+        return output["output"] as? String ?? "Unknown output"
+    }
+}
 ```
+import CoreML
+
+class SentientAI {
+    // ... (existing code)
+
+    func predict(_ input: String) -> String {
+        guard let model = try? MLModel(contentsOf: URL(fileURLWithPath: "SentientAI.mlmodel")) else {
+            return "Error loading model"
+        }
+
+        guard let output = try? model.prediction(from: ["input": input]) else {
+            return "Error making prediction"
+        }
+
+        return output["output"] as? String ?? "Unknown output"
+    }
+}
+```
+
